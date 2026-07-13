@@ -20,13 +20,13 @@ function renderCart() {
 
         <div class="cart-card">
 
-            <img src="₹{item.image}" class="cart-img">
+            <img src="${item.image}" class="cart-img">
 
             <div class="cart-info">
 
-                <h2₹{item.name}</h2>
+                <h2>${item.name}</h2>
 
-                <h3>₹{item.price}</h3>
+                <h3>$${item.price}</h3>
 
                 <div class="qty">
 
