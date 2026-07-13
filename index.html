@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Product Store</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:#f5f7fa;
+color:#333;
+}
+
+header{
+background:linear-gradient(135deg,#6C63FF,#4A90E2);
+color:white;
+padding:20px 8%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+position:sticky;
+top:0;
+}
+
+.logo{
+font-size:28px;
+font-weight:bold;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+margin-left:20px;
+font-weight:bold;
+}
+
+.hero{
+display:flex;
+flex-wrap:wrap;
+align-items:center;
+justify-content:center;
+padding:60px 8%;
+background:white;
+}
+
+.hero-text{
+flex:1;
+min-width:300px;
+}
+
+.hero-text h1{
+font-size:50px;
+margin-bottom:20px;
+}
+
+.hero-text p{
+font-size:20px;
+margin-bottom:30px;
+color:#555;
+}
+
+.hero img{
+width:400px;
+max-width:100%;
+}
+
+.btn{
+background:#6C63FF;
+color:white;
+padding:15px 30px;
+text-decoration:none;
+border-radius:30px;
+font-size:18px;
+transition:.3s;
+}
+
+.btn:hover{
+background:#4A90E2;
+}
+
+.products{
+padding:70px 8%;
+}
+
+.products h2{
+text-align:center;
+margin-bottom:40px;
+font-size:40px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:30px;
+}
+
+.card{
+background:white;
+border-radius:15px;
+overflow:hidden;
+box-shadow:0 10px 20px rgba(0,0,0,.1);
+transition:.3s;
+}
+
+.card:hover{
+transform:translateY(-8px);
+}
+
+.card img{
+width:100%;
+height:250px;
+object-fit:cover;
+}
+
+.card-content{
+padding:20px;
+}
+
+.price{
+font-size:30px;
+font-weight:bold;
+color:#6C63FF;
+margin:15px 0;
+}
+
+.buy{
+width:100%;
+padding:12px;
+border:none;
+background:#6C63FF;
+color:white;
+font-size:17px;
+border-radius:8px;
+cursor:pointer;
+}
+
+.buy:hover{
+background:#4A90E2;
+}
+
+.features{
+padding:60px 8%;
+background:white;
+text-align:center;
+}
+
+.feature-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:25px;
+margin-top:40px;
+}
+
+.feature{
+background:#f3f3f3;
+padding:25px;
+border-radius:15px;
+}
+
+footer{
+background:#222;
+color:white;
+text-align:center;
+padding:30px;
+margin-top:40px;
+}
+
+.popup{
+position:fixed;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+background:white;
+padding:30px;
+border-radius:15px;
+display:none;
+box-shadow:0 10px 30px rgba(0,0,0,.3);
+text-align:center;
+z-index:100;
+}
+
+.popup button{
+margin-top:20px;
+padding:10px 20px;
+border:none;
+background:#6C63FF;
+color:white;
+cursor:pointer;
+}
+</style>
+
+</head>
+<body>
+
+<header class="navbar">
+
+    <div class="logo">MyStore</div>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="products.html">Products</a>
+        <a href="contact.html">Contact</a>
+        <a href="cart.html">
+            🛒 Cart
+            <span id="cart-count">0</span>
+        </a>
+    </nav>
+
+</header>
+
+<section class="hero">
+
+    <div class="hero-text">
+
+        <h1>Premium Product</h1>
+
+        <p>
+            The perfect product for everyone.
+            High quality, affordable price,
+            and fast delivery.
+        </p>
+
+        <a href="#products" class="btn">Shop Now</a>
+
+    </div>
+
+
+</section>
+
+<!-- Search Bar -->
+<section class="search-box">
+
+    <input
+        type="text"
+        id="search"
+        placeholder="🔍 Search products..."
+        onkeyup="searchProducts()">
+
+</section>
+
+<!-- Products -->
+<section class="products" id="products">
+
+<h2>Our Products</h2>
+
+<div class="card product-card" data-category="gay"></div>
+<img src="images/product1.jpeg" alt="gay">
+
+<h3>Premium gay</h3>
+
+<p>stylish gay.</p>
+
+<div class="price">₹99</div>
+
+<button class="buy" onclick="buyNow()">Buy Now</button>
+<button class="buy"
+onclick="addCart('gay',99,'images/product1.jpg')">
+Add To Cart
+</button>
+
+</div>
+
+</div>
+
+<div class="card product-card" data-category="meetha"></div>
+<img src="images/product2.jpeg" alt="meetha">
+<div class="card-content">
+
+<h3>vip meetha</h3>
+
+<p>vip meetha</p>
+
+<div class="price">₹49</div>
+
+<button class="buy" onclick="buyNow()">Buy Now</button>
+<button class="buy"
+onclick="addCart('meetha',149,'images/product2.jpg')">
+Add To Cart
+</button>
+
+</div>
+
+</div>
+
+<div class="card product-card" data-category="randi"></div>
+<img src="images/product3.jpeg" alt="randi">
+
+<div class="card-content">
+
+<h3>randi shashi</h3>
+
+<p>dogla </p>
+
+<div class="price">₹100</div>
+
+<button class="buy" onclick="buyNow()">Buy Now</button>
+<button class="buy"
+onclick="addCart('randi',100,'images/product3.jpg')">
+Add To Cart
+</button>
+
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="features">
+
+<h2>Why Choose Us?</h2>
+
+<div class="feature-grid">
+
+<div class="feature">
+<h3>🚚 Fast Delivery</h3>
+<p>Quick shipping worldwide.</p>
+</div>
+
+<div class="feature">
+<h3>💳 Secure Payment</h3>
+<p>100% safe transactions.</p>
+</div>
+
+<div class="feature">
+<h3>⭐ Premium Quality</h3>
+<p>Only the best products.</p>
+</div>
+
+<div class="feature">
+<h3>📞 24/7 Support</h3>
+<p>Always here to help.</p>
+</div>
+
+</div>
+
+</section>
+
+<footer>
+
+<h3>MyStore</h3>
+
+<p>Email: support@example.com</p>
+
+<p>© 2026 All Rights Reserved</p>
+
+</footer>
+
+<div class="popup" id="popup">
+
+<h2>Thank You!</h2>
+
+<p>Your order request has been received.</p>
+
+<button onclick="closePopup()">Close</button>
+
+</div>
+
+<script>
+
+function buyNow(){
+document.getElementById("popup").style.display="block";
+}
+
+function closePopup(){
+document.getElementById("popup").style.display="none";
+}
+
+</script>
+
+<script src="js/app.js"></script>
+</body>
+</html>
