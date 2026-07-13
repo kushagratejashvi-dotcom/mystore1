@@ -16,42 +16,42 @@ function renderCart() {
 
         total += item.price * item.qty;
 
-       let image = "";
+        box.innerHTML += `
 
-if (item.name === "Product 1") {
-    image = "images/product1.jpeg";
-} else if (item.name === "Product 2") {
-    image = "images/product2.jpeg";
-} else if (item.name === "Product 3") {
-    image = "images/product3.jpeg";
-}
+        <div class="cart-card">
 
-box.innerHTML += `
-<div class="cart-card">
+            <img src="${item.image}" class="cart-img">
 
-    <img src="${image}" class="cart-img">
+            <div class="cart-info">
 
-    <div class="cart-info">
+                <h2>${item.name}</h2>
 
-        <h2>${item.name}</h2>
+                <h3>$${item.price}</h3>
 
-        <h3>₹${item.price}</h3>
+                <div class="qty">
 
-        <div class="qty">
-            <button onclick="decrease(${index})">-</button>
-            <span>${item.qty}</span>
-            <button onclick="increase(${index})">+</button>
+                    <button onclick="decrease(${index})">-</button>
+
+                    <span>${item.qty}</span>
+
+                    <button onclick="increase(${index})">+</button>
+
+                </div>
+
+                <button class="remove"
+                onclick="removeItem(${index})">
+
+                    Remove
+
+                </button>
+
+            </div>
+
         </div>
 
-        <button class="remove" onclick="removeItem(${index})">
-            Remove
-        </button>
+        `;
 
-    </div>
-
-</div>
-`;
-         
+    });
 
     document.getElementById("total").innerHTML = total;
 
