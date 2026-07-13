@@ -39,7 +39,7 @@ function renderCart() {
                 </div>
 
                 <button class="remove"
-                onclick="removeItem(${index})">
+                onclick="removeItem(₹{index})">
 
                     Remove
 
