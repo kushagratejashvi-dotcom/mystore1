@@ -20,26 +20,26 @@ function renderCart() {
 
         <div class="cart-card">
 
-            <img src="${item.image}" class="cart-img">
+            <img src="₹{item.image}" class="cart-img">
 
             <div class="cart-info">
 
-                <h2>${item.name}</h2>
+                <h2>₹{item.name}</h2>
 
-                <h3>$${item.price}</h3>
+                <h3>₹{item.price}</h3>
 
                 <div class="qty">
 
-                    <button onclick="decrease(${index})">-</button>
+                    <button onclick="decrease(₹{index})">-</button>
 
-                    <span>${item.qty}</span>
+                    <span>₹{item.qty}</span>
 
-                    <button onclick="increase(${index})">+</button>
+                    <button onclick="increase(₹{index})">+</button>
 
                 </div>
 
                 <button class="remove"
-                onclick="removeItem(${index})">
+                onclick="removeItem(₹{index})">
 
                     Remove
 
