@@ -20,7 +20,7 @@ function renderCart() {
 
         <div class="cart-card">
 
-            <img src="${item.image}" class="cart-img">
+            <img src="${product1.jpeg}" class="cart-img">
 
             <div class="cart-info">
 
